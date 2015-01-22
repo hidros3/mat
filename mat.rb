@@ -14,6 +14,8 @@ CSV.foreach("publisherandmatchypte_raw.csv", headers: true) do |row|
     when /Coupang/ then 'coupang'
     when /Naver/ then 'naver'
     when /Band/ then 'band'
+    when /Facebook/ then 'facebook'
+    when /Cashslide/ then 'cashslide'
     else 'etc'
     end
   rawdata << row
