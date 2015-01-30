@@ -1,6 +1,7 @@
 require 'csv'
 
 rawdata = []
+puts "Reading CSV file and processing ..."
 CSV.foreach("publisherandmatchypte_raw.csv", headers: true) do |row|
   row['publisher'] =
     case row['publisher.name']
@@ -19,8 +20,10 @@ CSV.foreach("publisherandmatchypte_raw.csv", headers: true) do |row|
     else 'etc'
     end
   rawdata << row
+  print "."
 end
 
+puts "Writing File, Wait a second"
 CSV.open("processed_data.csv", 'w') do |output|
   rawdata.each { |row| output << row }
 end
